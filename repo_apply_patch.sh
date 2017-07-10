@@ -19,3 +19,4 @@ do
         echo "$0: Project directory $chg_dir don't exists.";
     fi
 done
+rm -fr _tmp_splits*
