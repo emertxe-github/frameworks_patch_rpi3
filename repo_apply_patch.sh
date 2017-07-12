@@ -2,7 +2,10 @@
 ## Script to patch up diff reated by `repo diff`
 
 # from https://groups.google.com/d/msg/repo-discuss/43juvD1qGIQ/7maptZVcEjsJ
-
+if [ ! -f "frameworks_patch_rpi3/android_frmeworks_rpi_patch" ]; then
+    echo "\"android_frmeworks_rpi_patch\" file not exist in frameworks_patch_rpi3 dir"
+    exit 0
+fi
 rm -fr _tmp_splits*
 cat "frameworks_patch_rpi3/android_frmeworks_rpi_patch" | csplit -qf '' -b "_tmp_splits.%d.diff" - '/^project.*\/$/' '{*}' 
 
